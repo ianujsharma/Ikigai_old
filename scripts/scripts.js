@@ -78,26 +78,26 @@ var projects = {
     title: "Responsive Recipe Hub",
     description: "Responsive Recipe Hub is a dynamic recipe website I designed and developed using HTML and CSS. This project demonstrates my expertise in crafting well-structured web pages.",
     technologies: ["HTML", "CSS", "JavaScript"],
-    link: "github.com"
+    link: "https://github.com/"
   },
   project2: {
     title: "Personal Finance Tracker",
     description: "Personal Finance Tracker is a excel-sheet designed to empower users with financial mangement tools. This project demonstrate my ability to combine by excel skills with an understanding of financial principles",
     technologies: ["Excel", "VBA", "Finance"],
-    link: "github.com"
+    link: "https://github.com/"
   },
 
   project3: {
     title: "ProjectName",
     description: "This section will going to have complete description of the project you are showcasing",
     technologies: ["Tech1", "Tech2", "Tech3"],
-    link: "github.com" //link the page to redirect, here
+    link: "https://github.com/" //link the page to redirect, here
   },
   project4: {
     title: "ProjectName",
     description: "This section will going to have full description of the project you are showcasing",
     technologies: ["Tech1", "Tech2", "Tech3"],
-    link: "github.com" //link the page to redirect, here
+    link: "https://github.com/" //link the page to redirect, here
   }
   // Add more projects as needed
 };
