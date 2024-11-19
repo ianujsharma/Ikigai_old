@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found</title>
+
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playwrite+Australia+Victoria&display=swap">
+    <style>
+        /* General Styles */
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+        }
+        /* Navbar Styles */
+        
+        .navbar {
+            background-color: #ffffff;
+            /* Light background color */
+            padding: 20px 0;
+            /* Adjust padding as needed */
+            /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); Subtle shadow */
+        }
+        
+        .navbar-brand {
+            font-size: 1.8rem;
+            /* Larger font size for brand */
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .navbar-nav .nav-link {
+            font-size: 1.1rem;
+            /* Larger font size for nav links */
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            transition: all 0.1s;
+        }
+        
+        .navbar-nav .nav-link:hover {
+            background-color: #eaeaea;
+            /* Light background on hover */
+            color: #6c5ce7;
+            /* Change color on hover */
+        }
+        /* Styles for 404 Page */
+        
+        .container1 {
+            padding-top: 50px;
+            /* Adjust padding as needed */
+            padding-bottom: 50px;
+        }
+        
+        .display-4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            color: #6c5ce7;
+            /* Purple color */
+        }
+        
+        .lead {
+            font-family: 'Raleway', sans-serif;
+            font-size: 1.5rem;
+            color: #333;
+            /* Dark grey color */
+        }
+        
+        .btn-primary {
+            background-color: #6c5ce7;
+            /* Purple color */
+            border-color: #6c5ce7;
+            /* Purple color */
+        }
+        
+        .btn-primary:hover {
+            background-color: #563dc6;
+            /* Darker purple color on hover */
+            border-color: #563dc6;
+            /* Darker purple color on hover */
+        }
+        
+        .img-fluid {
+            max-width: 80%;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div data-include="nav.html"></div>
+
+
+    <div class="container1">
+        <div class="row justify-content-center align-items-center" style="min-height: 80vh;">
+            <div class="col-lg-6 col-md-8 col-sm-10 text-center">
+                <h1 class="display-4 mb-3">404</h1>
+                <p class="lead mb-4">Page Not Found</p>
+                <p class="mb-4">Oops! The page you are looking for could not be found.<br>Please check your URL and return home.</p>
+                <a href="#" class="btn btn-primary">Go Home</a>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-10 text-center">
+                <img src="images/cat.jpg" class="img-fluid mt-4 mt-md-0" alt="Cat Image">
+                <!-- img-fluid is for responsive-ness  for different screen size -->
+            </div>
+        </div>
+    </div>
+
+    <div data-include="footer.html"></div>
+
+    <script src="partials/include.js"></script>
+</body>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</html>
