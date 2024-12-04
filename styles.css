@@ -606,10 +606,10 @@ font-size: 16px;
 .project-content p {
 font-size: 13px;
 }
-  .project-content {
-  margin-top:5%;
-}
-}
+.project-content {
+  margin-top:10%;
+  text-align: center;
+}}
 
 @media (max-width: 480px) {
 .project-showcase {
@@ -641,8 +641,9 @@ font-size: 14px;
 .project-content p {
 font-size: 12px;
 }
-  .project-content {
-  margin-top:5%;
+.project-content {
+  margin-top:10%;
+  text-align: center;
 }
 }
 
