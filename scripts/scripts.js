@@ -75,28 +75,29 @@ var span = document.getElementsByClassName("close")[0];
 // Mock data
 var projects = {
   project1: {
-    title: "Responsive Recipe Hub",
-    description: "Responsive Recipe Hub is a dynamic recipe website I designed and developed using HTML and CSS. This project demonstrates my expertise in crafting well-structured web pages.",
+    title: "Responsive Blog Website",
+    description: "A minimalist responsive blog website template offers a clean, simple design with a focus on content. It features a streamlined layout, intuitive navigation, and responsive elements that adjust to any screen size. The template emphasizes readability and user experience, ensuring a smooth browsing experience across all devices.
+",
     technologies: ["HTML", "CSS", "JavaScript"],
-    link: "https://github.com/"
+    link: "carouselblog.cloud"
   },
   project2: {
-    title: "Personal Finance Tracker",
-    description: "Personal Finance Tracker is a excel-sheet designed to empower users with financial mangement tools. This project demonstrate my ability to combine by excel skills with an understanding of financial principles",
-    technologies: ["Excel", "VBA", "Finance"],
-    link: "https://github.com/"
+    title: "Portfolio Management",
+    description: "Managed a diversified investment portfolio, focusing on asset allocation and risk management. Conducted in-depth market research to identify high-potential investments. Regularly reviewed performance to ensure alignment with financial goals and risk tolerance.",
+    technologies: ["Excel", "Mathematics", "Finance"],
+    link: "return.xlsx"
   },
 
   project3: {
-    title: "ProjectName",
-    description: "This section will going to have complete description of the project you are showcasing",
-    technologies: ["Tech1", "Tech2", "Tech3"],
+    title: "Bdugeting and Forecasting",
+    description: "Developed comprehensive budgeting and forecasting models to track revenue and expenses. Analyzed financial data to provide accurate projections for future periods. Enabled strategic decision-making by ensuring financial targets and resources were effectively allocated.",
+    technologies: ["Mathematics", "Excel", "Finance"],
     link: "https://github.com/" //link the page to redirect, here
   },
   project4: {
-    title: "ProjectName",
-    description: "This section will going to have full description of the project you are showcasing",
-    technologies: ["Tech1", "Tech2", "Tech3"],
+    title: "Financial Analysis",
+    description: "Conducted a detailed analysis of financial statements to assess the company's performance and financial health. Utilized key financial ratios and metrics to identify strengths, weaknesses, and potential risks. Provided actionable insights to support strategic decision-making and business growth.",
+    technologies: ["Excel", "VBA", "Finance"],
     link: "https://github.com/" //link the page to redirect, here
   }
   // Add more projects as needed
