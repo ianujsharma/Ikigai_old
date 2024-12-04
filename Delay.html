@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <style>
+        /* Base styles */
+        
+        body {
+            font-family: 'Raleway', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0ede9;
+            color: #333;
+        }
+        /* Container styles */
+        
+        .thank-you-container {
+            text-align: center;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            background-color: #f0f0f0;
+            max-width: 600px;
+            margin: 20px;
+        }
+        /* Heading styles */
+        
+        .thank-you-heading {
+            font-family: 'Great Vibes', cursive;
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: rgb(84, 137, 237);
+        }
+        /* Message styles */
+        
+        .thank-you-message {
+            font-size: 1.5rem;
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        /* Button styles */
+        
+        .return-home {
+            padding: 12px 30px;
+            border: 2px solid rgb(84, 137, 237);
+            background-color: transparent;
+            color: rgb(84, 137, 237);
+            border-radius: 30px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+        }
+        
+        .return-home:hover {
+            background-color: rgb(84, 137, 237);
+            color: #fff;
+        }
+        /* Responsive styles */
+        
+        @media (max-width: 768px) {
+            .thank-you-container {
+                padding: 20px;
+            }
+            .thank-you-heading {
+                font-size: 3rem;
+            }
+            .thank-you-message {
+                font-size: 1.2rem;
+            }
+            .return-home {
+                font-size: 1rem;
+                padding: 10px 20px;
+            }
+        }
+        /*Animation*/
+        /* CSS animations */
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        /* Apply initial styles */
+        
+        .thank-you-heading,
+        .thank-you-message,
+        .return-home {
+            opacity: 0;
+        }
+        /* Apply animations */
+        
+        .thank-you-heading.animated {
+            animation: fadeInUp 1.5s ease forwards;
+        }
+        
+        .thank-you-message.animated {
+            animation: fadeInDown 1.5s ease forwards;
+            animation-delay: -1s;
+            /* Start 1 second before the previous animation ends */
+        }
+        
+        .return-home.animated {
+            animation: scaleIn 1.5s ease forwards;
+            animation-delay: -1s;
+            /* Start 1 second before the previous animation ends */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="thank-you-container">
+        <h1 class="thank-you-heading">Thank You!</h1>
+        <p class="thank-you-message">This page is yet to be populated, maybe next Sunday ;)</p>
+        <a href="index.html" class="return-home">Return Home</a>
+    </div>
+
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Select elements
+        const thankYouHeading = document.querySelector('.thank-you-heading');
+        const thankYouMessage = document.querySelector('.thank-you-message');
+        const returnHome = document.querySelector('.return-home');
+
+        // Add 'animated' class to trigger animations
+        function animateElements() {
+            thankYouHeading.classList.add('animated');
+            thankYouMessage.classList.add('animated');
+            returnHome.classList.add('animated');
+        }
+
+        // Trigger animations
+        setTimeout(animateElements, 100);
+    });
+</script>
+
+
+</html>
