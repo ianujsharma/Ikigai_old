@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Page</title>
+  <!-- Font Awesome CDN (correct version) -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Raleway:wght@400;500&display=swap" rel="stylesheet">
+  <!-- Bootstrap CDN -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  
+  <style>
+    /* Navbar Styles */
+    .navbar {
+        background-color: #ffffff;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        font-family: 'Raleway', sans-serif;
+    }
+    
+    .navbar-brand {
+        font-size: 1.8rem;
+        font-family: 'Playfair Display', serif;
+        font-weight: 700;
+    }
+    
+    .navbar-nav .nav-link {
+        font-size: 1.1rem;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        transition: all 0.1s;
+        font-weight: 500;
+    }
+    
+    .navbar-nav .nav-link:hover {
+        background-color: #eaeaea;
+        color: #6c5ce7;
+    }
+    
+    /* Responsive navbar adjustments */
+    @media (max-width: 768px) {
+        .navbar-nav .nav-link {
+            font-size: 1rem;
+        }
+    }
+  
+    /* General reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+  
+    /* Body Styling */
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f7f7f7;
+      color: #333;
+      text-align: center;
+      padding: 50px 20px;
+    }
+  
+    h1 {
+        margin-top: 20%;
+        font-size: 2.5rem;
+        color: #333;
+        margin-bottom: 40px;
+    }
+  
+    /* Contact container */
+    .contact-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+  
+    /* Social Media Icons Container */
+    .contact-icons {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+  
+    /* Individual Icon Styling */
+    .contact-icon {
+      width: 60px;
+      height: 60px;
+      background-color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+  
+    .contact-icon:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+    }
+  
+    .contact-icon i {
+      font-size: 1.5rem;
+      color: #333;
+    }
+  
+    /* Large Screen (Desktop) */
+   
+    /* Tablet Screen (768px to 1199px) */
+    @media (max-width: 1199px) and (min-width: 768px) {
+      h1 {
+        font-size: 2.2rem;
+      }
+  
+      .contact-icon {
+        width: 60px;
+        height: 60px;
+      }
+  
+      .contact-icons {
+        gap: 20px;
+      }
+    }
+  
+    /* Mobile Screen (Below 768px) */
+    @media (max-width: 767px) {
+      .contact-icons {
+        justify-content: center; /* Center the icons horizontally */
+        flex-direction: column;  /* Stack the icons vertically */
+        gap: 25px;  /* Increase the gap between icons */
+      }
+
+      .contact-icon {
+        width: 80px; /* Increase icon size */
+        height: 80px; /* Increase icon size */
+        margin: 0 auto; /* Center the icons */
+      }
+
+      .contact-icon i {
+        font-size: 2rem; /* Make the icon larger */
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar Section -->
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
+      <a class="navbar-brand" href="index.html"> Anuj Sharma</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#blogs">Blogs</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Contact Section -->
+  <div class="contact-container">
+    <h1>Get in Touch</h1>
+
+    <!-- Social Media Icons -->
+    <div class="contact-icons">
+      <a href="mailto:anujowns@example.com" class="contact-icon" title="Email">
+        <i class="fas fa-envelope"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/anujsharma7" class="contact-icon" title="LinkedIn" target="_blank">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="https://www.instagram.com/_ianuj_" class="contact-icon" title="Instagram" target="_blank">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="tel:+919953092898" class="contact-icon" title="Phone Number">
+        <i class="fas fa-phone"></i>
+      </a>
+    </div>
+  </div>
+
+  <!-- Scripts for Bootstrap functionality -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
