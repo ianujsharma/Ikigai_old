@@ -78,7 +78,7 @@ var projects = {
     title: "Responsive Blog Website",
     description: "A minimalist responsive blog website template offers a clean, simple design with a focus on content. It features a streamlined layout, intuitive navigation, and responsive elements that adjust to any screen size. The template emphasizes readability and user experience, ensuring a smooth browsing experience across all devices.",
     technologies: ["HTML", "CSS", "JavaScript"],
-    link: "carouselblog.cloud"
+    link: "https://carouselblog.cloud/"
   },
   project2: {
     title: "Portfolio Management",
