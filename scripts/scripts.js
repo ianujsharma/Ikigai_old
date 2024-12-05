@@ -94,10 +94,10 @@ var projects = {
     link: "https://ianuj.cloud/Delay.html" //link the page to redirect, here
   },
   project4: {
-    title: "Financial Analysis",
-    description: "Conducted a detailed analysis of financial statements to assess the company's performance and financial health. Utilized key financial ratios and metrics to identify strengths, weaknesses, and potential risks. Provided actionable insights to support strategic decision-making and business growth.",
+    title: "3 Statment Financial Model",
+    description: "Developed a three-statement financial model to forecast income, balance sheet, and cash flow statements. Incorporated key assumptions and drivers to simulate various financial scenarios. Enabled data-driven insights for strategic decision-making and performance optimization. [with Key Ratio Calculation]",
     technologies: ["Excel", "VBA", "Finance"],
-    link: "https://ianuj.cloud/Delay.html" //link the page to redirect, here
+    link: "model01.xlsx" //link the page to redirect, here
   }
   // Add more projects as needed
 };
