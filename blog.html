@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blogs</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Raleway:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Navbar Styles */
+    .navbar {
+        background-color: #ffffff;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        font-family: 'Raleway', sans-serif;
+        /*position: fixed; /*this is used to keep the nav bar fixed at top of scereen every time **/
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+    }
+    
+    .navbar-brand {
+        font-size: 1.8rem;
+        font-family: 'Playfair Display', serif;
+        font-weight: 700;
+    }
+    
+    .navbar-nav .nav-link {
+        font-size: 1.1rem;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        transition: all 0.1s;
+        font-weight: 500;
+    }
+    
+    .navbar-nav .nav-link:hover {
+        background-color: #eaeaea;
+        color: #6c5ce7;
+    }
+    
+    /* Page-Specific Sidebar Styles */
+    .page-sidebar {
+      position: fixed;
+      top: 30%; /* Adjusted to prevent overlap with top navbar */
+      left: 20px;
+      background-color: #ffffff;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 15px;
+      border-radius: 8px;
+      z-index: 100;
+      width: 200px;
+    }
+
+    .page-sidebar a {
+      display: block;
+      font-size: 1.2rem;
+      padding: 10px 20px;
+      margin: 10px 0;
+      border-radius: 5px;
+      color: #333;
+      text-decoration: none;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .page-sidebar a:hover {
+      background-color: #eaeaea;
+      color: #6c5ce7;
+    }
+
+    /* Smooth Scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Content Styling */
+    .content {
+      margin-top: 100px; /* Added margin to prevent content from hiding under navbar */
+      margin-left: 250px; /* Space for sidebar */
+      padding: 20px;
+    }
+
+    section {
+      margin-bottom: 80px;
+    }
+    
+    /* Optional: Adjust for smaller screens */
+    @media (max-width: 768px) {
+      .page-sidebar {
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;
+        z-index:-5;
+        opacity:0;
+      }
+
+      .content {
+        margin-left: 0;
+      }
+    }
+  </style>
+  <style>
+    .blog-showcase {
+      padding: 60px 0;
+      font-family: 'Raleway', sans-serif;
+    }
+    
+    .blog-title {
+      margin-top : 7%;
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+    
+    .blog-description {
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+      color: #555;
+    }
+    
+    .btn-primary {
+      background-color: #6c5ce7;
+      border-color: #6c5ce7;
+      transition: background-color 0.3s, border-color 0.3s;
+    }
+    
+    .btn-primary:hover {
+      background-color: #4834d4;
+      border-color: #4834d4;
+    }
+    
+    .img-fluid {
+      border-radius: 10px;
+    }
+    
+    @media (max-width: 768px) {
+      .blog-title {
+        font-size: 1.5rem;
+      }
+    
+      .blog-description {
+        font-size: 1rem;
+      }
+    }
+    /* imported */
+    
+  
+  
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Playfair Display', serif;
+      background-color: #f5f5f5; /* Light gray background for a soft look */
+      color: #333;
+      line-height: 1.5;
+      overflow: hidden; /* Ensures that there's no scroll bar if animations are not properly handled */
+      overflow-y: auto; /* these the one due to which we are able to scroll through else we have to use th side navigtaion*/
+      text-align: center; /* Centering content */
+    }
+    
+    /* Footer Styling */
+    .footer {
+      background-color: #f5f5f5; /* Light gray background */
+      padding: 40px 0;
+      text-align: center;
+      color: #333; /* Dark gray text for readability */
+      font-family: 'Raleway', sans-serif;
+      border-top: 1px solid #ccc; /* Subtle divider */
+    }
+    
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 0 20px;
+    }
+    
+    .footer-logo img {
+      max-width: 150px;
+    }
+    
+    .footer-links, .footer-socials {
+      display: flex;
+      gap: 20px;
+    }
+    
+    .footer-links ul, .footer-socials ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .footer-links li, .footer-socials li {
+      display: inline-block;
+    }
+    
+    .footer-links a, .footer-socials a {
+      color: #333;
+      text-decoration: none;
+      font-size: 16px;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-links a:hover, .footer-socials a:hover {
+      color: #777; /* Slight gray on hover */
+    }
+    
+    .footer-socials a {
+      font-size: 18px;
+    }
+    
+    .footer-credit {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #777; /* Lighter gray for the copyright notice */
+    }
+    
+    a {
+      text-decoration: none;
+    }
+    a:hover{text-decoration: none;}
+    
+  
+    </style>
+
+</head>
+<body>
+  <!-- Top Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
+        <a class="navbar-brand" href="#">Anuj Sharma</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#projects">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="blogs.html">Blogs</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+  </nav>
+
+  <!-- Page-Specific Sidebar Navigation
+  <div class="page-sidebar">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#education">Education</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skill</a>
+  </div> -->
+
+  <section class="blog-showcase">
+    <div class="container">
+      <!-- Blog 1 -->
+      <div class="row align-items-center mb-5">
+        <div class="col-md-6">
+          <img src="blog1.jpg" alt="Blog 1" class="img-fluid rounded shadow">
+        </div>
+        <div class="col-md-6">
+          <h2 class="blog-title">Sales Forecasting</h2>
+          <p class="blog-description">A brief description of Blog 1 goes here. This text provides an overview to entice the reader to click and read more.</p>
+          <a href="Delay.html" class="btn btn-primary">Read More</a>
+        </div>
+      </div>
+  
+      <!-- Blog 2 -->
+      <div class="row align-items-center flex-row-reverse mb-5">
+        <div class="col-md-6">
+          <img src="blog2.jpg" alt="Blog 2" class="img-fluid rounded shadow">
+        </div>
+        <div class="col-md-6">
+          <h2 class="blog-title">3 Statement Financial model</h2>
+          <p class="blog-description">A brief description of Blog 2 goes here. Highlight key insights or topics to intrigue readers.</p>
+          <a href="Delay.html" class="btn btn-primary">Read More</a>
+        </div>
+      </div>
+  
+      <!-- Blog 3 -->
+      <div class="row align-items-center mb-5">
+        <div class="col-md-6">
+          <img src="blog3.jpg" alt="Blog 3" class="img-fluid rounded shadow">
+        </div>
+        <div class="col-md-6">
+          <h2 class="blog-title">Financial Statement Analysis</h2>
+          <p class="blog-description">A brief description of Blog 3 goes here. Add engaging content to captivate your audience.</p>
+          <a href="Delay.html" class="btn btn-primary">Read More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  
+  
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/ScrollTrigger.min.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="scripts.js"></script>
+
+
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-logo">
+        <img src="profile.jpg" alt="Logo">
+      </div>
+      
+      <div class="footer-socials">
+        <ul>
+          <li><a href="https://linkedin.com" target="_blank" class="linkedin">LinkedIn  </a></li>
+          <li><a href="https://github.com" target="_blank" class="github">GitHub   </a></li>
+          <li><a href="https://twitter.com" target="_blank" class="twitter">Twitter   </a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="footer-credit">&copy; 2024 Anuj Sharma. All rights reserved.</p>
+  </footer>
+</body>
+
+</html>
