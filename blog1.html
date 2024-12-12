@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blogs</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Raleway:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Great+Vibes&display=swap" rel="stylesheet">
+   
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Lora:wght@400;700&family=Playfair+Display:wght@400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Navbar Styles */
+    .navbar {
+        background-color: #ffffff;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        font-family: 'Raleway', sans-serif;
+        /*position: fixed; /*this is used to keep the nav bar fixed at top of scereen every time **/
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+    }
+    
+    .navbar-brand {
+        font-size: 1.8rem;
+        font-family: 'Playfair Display', serif;
+        font-weight: 700;
+    }
+    
+    .navbar-nav .nav-link {
+        font-size: 1.1rem;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        transition: all 0.1s;
+        font-weight: 500;
+    }
+    
+    .navbar-nav .nav-link:hover {
+        background-color: #eaeaea;
+        color: #6c5ce7;
+    }
+    
+    /* Page-Specific Sidebar Styles */
+    .page-sidebar {
+      position: fixed;
+      top: 30%; /* Adjusted to prevent overlap with top navbar */
+      left: 20px;
+      background-color: #ffffff;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 15px;
+      border-radius: 8px;
+      z-index: 100;
+      width: 200px;
+    }
+
+    .page-sidebar a {
+      display: block;
+      font-size: 1.2rem;
+      padding: 10px 20px;
+      margin: 10px 0;
+      border-radius: 5px;
+      color: #333;
+      text-decoration: none;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .page-sidebar a:hover {
+      background-color: #eaeaea;
+      color: #6c5ce7;
+    }
+
+    /* Smooth Scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Content Styling */
+    .content {
+      margin-top: 100px; /* Added margin to prevent content from hiding under navbar */
+      margin-left: 250px; /* Space for sidebar */
+      padding: 20px;
+    }
+
+    section {
+      margin-bottom: 80px;
+    }
+    
+    /* Optional: Adjust for smaller screens */
+    @media (max-width: 768px) {
+      .page-sidebar {
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;
+        z-index:-5;
+        opacity:0;
+      }
+
+      .content {
+        margin-left: 0;
+      }
+    }
+  </style>
+  <style>
+    
+    /* imported */
+   
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      background-color: #f5f5f5; /* Light gray background for a soft look */
+      color: #333;
+      line-height: 1.5;
+      overflow: hidden; /* Ensures that there's no scroll bar if animations are not properly handled */
+      overflow-y: auto; /* these the one due to which we are able to scroll through else we have to use th side navigtaion*/
+      text-align: left; /* Centering content */
+    }
+    
+    /* Footer Styling */
+    .footer {
+      margin-top:5%;
+      background-color: #f5f5f5; /* Light gray background */
+      padding: 40px 0;
+      text-align: center;
+      color: #333; /* Dark gray text for readability */
+      font-family: 'Raleway', sans-serif;
+      border-top: 1px solid #ccc; /* Subtle divider */
+    }
+    
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 0 20px;
+    }
+    
+    .footer-logo img {
+      max-width: 150px;
+    }
+    
+    .footer-links, .footer-socials {
+      display: flex;
+      gap: 20px;
+    }
+    
+    .footer-links ul, .footer-socials ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .footer-links li, .footer-socials li {
+      display: inline-block;
+    }
+    
+    .footer-links a, .footer-socials a {
+      color: #333;
+      text-decoration: none;
+      font-size: 16px;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-links a:hover, .footer-socials a:hover {
+      color: #777; /* Slight gray on hover */
+    }
+    
+    .footer-socials a {
+      font-size: 18px;
+    }
+    
+    .footer-credit {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #777; /* Lighter gray for the copyright notice */
+    }
+    
+    a {
+      text-decoration: none;
+    }
+    a:hover{text-decoration: none;}
+    
+
+    /* ----------------------------------------------------------------------------------------------------------- */
+
+  </style>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Lora:wght@400;700&family=Playfair+Display:wght@400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* Overall blog container styling */
+    .blog-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      background-color: #f4f4f4; /* light gray background */
+      border-radius: 12px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05); /* subtle shadow for depth */
+    }
+  
+    /* Blog title styling */
+    .blog-title {
+      font-family: 'Cinzel Decorative', cursive; /* Elegant cursive font */
+      font-size: 2.8rem;
+      margin-bottom: 20px;
+      text-align: center;
+      color: #333; /* Dark gray for title */
+      letter-spacing: 1px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+  
+    /* Blog image styling */
+    .blog-image {
+      
+
+      width: 96%;
+      border-radius: 5px;
+      margin: 30px 0;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* subtle shadow */
+    
+    
+    }
+    .blog-image-div {
+      padding-left:3%;
+    }
+  
+    /* Blog content styling */
+    .blog-content {
+      font-family: 'Lora', serif; /* Smooth serif font for body text */
+      font-size: 1.125rem;
+      line-height: 1.7;
+      color: #555; /* Darker gray for body text */
+      margin-top: 40px;
+      margin-bottom :40px;
+      padding-left:4%;
+    
+    }
+  
+    /* Download button styling */
+    .download-button {
+      display: block;
+      margin: 30px auto;
+      background-color: #333; /* Dark gray button */
+      color: #fff;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 5px;
+      font-family: 'Montserrat', sans-serif; /* Clean sans-serif for button */
+      font-size: 1rem;
+      text-align: center;
+      text-decoration: none;
+      transition: background-color 0.3s, transform 0.3s ease, box-shadow 0.3s ease;
+    }
+  
+    .download-button:hover {
+      background-color: #444; /* Slightly lighter gray for hover effect */
+      transform: scale(1.05); /* Slight scale-up effect */
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* subtle shadow on hover */
+    }
+  
+    /* Underline animation on headings */
+    h1::after, h2::after, h3::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 3px;
+      background-color: #333; /* Dark gray underline */
+      transform: scaleX(0);
+      transition: transform 0.3s ease-in-out;
+    }
+  
+    h1:hover::after, h2:hover::after, h3:hover::after {
+      transform: scaleX(1);
+      width: 50%;
+    }
+  
+    /* Heading 1 (Title) styling */
+    h1 {
+      font-family: 'Cinzel Decorative', cursive; /* Decorative font for title */
+      font-weight: normal; /* Lighter weight */
+      color: #333; /* Dark gray color */
+      font-size: 3rem;
+      text-align: center;
+      letter-spacing: 2px;
+      text-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+      transition: text-shadow 0.3s ease;
+      position: relative;
+      padding-bottom: 12px;
+    }
+  
+    h1:hover {
+      text-shadow: 0 0 20px rgba(0, 0, 0, 0.15), 0 0 40px rgba(0, 0, 0, 0.2);
+    }
+  
+    /* Headings 2 & 3 styling */
+    h2 {
+      font-family: 'Playfair Display', serif; /* Elegant serif font for subheadings */
+      color: #333;
+      font-weight: normal;
+      font-size: 2.2rem;
+      text-align: left;
+      margin-bottom: 15px;
+      padding-bottom: 5px;
+      position: relative;
+    }
+  
+    h3 {
+      font-family: 'Playfair Display', serif; /* Elegant serif font for subheadings */
+      color: #333;
+      font-weight: normal;
+      font-size: 1.8rem;
+      text-align: left;
+      margin-bottom: 12px;
+      padding-bottom: 5px;
+      position: relative;
+    }
+    ul {
+      padding-left : 5%;
+    }
+    /* For small screens (like mobile devices) */
+@media (max-width: 600px) {
+  .blog-container {
+    padding: 20px 10px;
+  }
+
+  .blog-title {
+    font-size: 2rem;
+  }
+
+  .blog-image {
+    width: 100%;
+    margin: 15px 0;
+  }
+
+  .blog-content {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  h1 {
+    font-size: 2.2rem;
+    letter-spacing: 1px;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  .download-button {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+}
+
+/* For medium screens (tablets, small laptops) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .blog-container {
+    padding: 30px 20px;
+  }
+
+  .blog-title {
+    font-size: 2.2rem;
+  }
+
+  .blog-image {
+    width: 100%;
+    margin: 20px 0;
+  }
+
+  .blog-content {
+    font-size: 1.1rem;
+    line-height: 1.7;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  h3 {
+    font-size: 1.6rem;
+  }
+
+  .download-button {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+}
+
+/* For large screens (desktops and above) */
+@media (min-width: 1025px) {
+  
+
+  .blog-title {
+    font-size: 2.5rem;
+  }
+
+  .blog-image {
+    width: 100%;
+    margin: 20px 0;
+  }
+
+  .blog-content {
+    font-size: 1.2rem;
+    line-height: 1.8;
+  }
+
+  h1 {
+    font-size: 2.8rem;
+    letter-spacing: 2px;
+  }
+
+  h2 {
+    font-size: 2.2rem;
+  }
+
+  h3 {
+    font-size: 1.7rem;
+  }
+
+  .download-button {
+    font-size: 1.1rem;
+    padding: 12px 24px;
+  }
+}
+.content-image{
+  width : 97%
+}
+
+  </style>
+ 
+
+</head>
+<body>
+  <!-- Top Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
+        <a class="navbar-brand" href="#">Anuj Sharma</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#projects">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="blogs.html">Blogs</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+  </nav>
+
+  <!-- Page-Specific Sidebar Navigation -->
+  <div class="page-sidebar">
+    <a href="#home">Home</a>
+    <a href="#intro">Introduction</a>
+    <a href="#financial">Statements</a>
+    <a href="#model">Model</a>
+    <a href="#files">Files</a>
+  </div> 
+
+  <!-- Blog Content -->
+ 
+  <!-- Import Google Fonts -->
+   
+  
+  <div id="home" class="blog-container">
+    <h1 class="blog-title">3 Statement Financial Model</h1>
+    <div class="blog-image-div"><img src="blog3.jpg" alt="Finance Model Image" class="blog-image"></div>
+    <div class="blog-content">
+      <h2 id="intro">Introduction</h2>
+      <p>The three-statement model is a core financial model that links a company’s income statement, balance sheet, and cash flow statement.</p>
+  
+      <h2 id="financial">Financial Statements</h2>
+      <p>This is Financial Statement Paragraph Bacha. The balance sheet provides a snapshot of a company’s assets, liabilities, and equity at a specific point in time.</p>
+      
+      <h3>1. Balance Sheet</h3>
+      <p>The balance sheet is an essential financial statement that shows the company's assets, liabilities, and equity. It represents the company’s financial position at a specific point in time.</p>
+      
+      <h3>2. Profit and Loss Statement</h3>
+      <p>The P&L statement summarizes a company’s revenues, costs, and expenses to show the net profit or loss over a specific period of time.</p>
+      
+      <h3>3. Cash Flow Statement</h3>
+      <p>The cash flow statement outlines the inflows and outflows of cash over a given period. It provides insights into the company’s cash liquidity and its ability to meet short-term obligations.</p>
+  
+      <div class="content-image" id=""><img 
+        src="modelling.jpg" alt="Finance Model Image" class="blog-image"></div>
+      <h2 id="model">Model</h2>
+      <p>Para 1</p>
+      <p>Para 2</p>
+  
+      <h3>Key Takeaways</h3>
+      <ul>
+        <li>Mastering financial modeling is a powerful skill in finance.</li>
+        <li>Understanding the interconnection between the three statements is crucial.</li>
+        <li>Financial models provide insights that drive business decisions.</li>
+      </ul>
+  
+      <p>Mastering financial modeling can lead to greater career opportunities in investment banking, private equity, and more.</p>
+    </div>
+    <a id="files" href="files/financial_model_project.zip" download class="download-button">Download Project Files</a>
+  </div>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/ScrollTrigger.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+ 
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-logo">
+        <img src="profile.jpg" alt="Logo">
+      </div>
+      
+      <div class="footer-socials">
+        <ul>
+          <li><a href="https://linkedin.com" target="_blank" class="linkedin">LinkedIn  </a></li>
+          <li><a href="https://github.com" target="_blank" class="github">GitHub   </a></li>
+          <li><a href="https://twitter.com" target="_blank" class="twitter">Twitter   </a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="footer-credit">&copy; 2024 Anuj Sharma. All rights reserved.</p>
+  </footer>
+
+</body>
+
+</html>
